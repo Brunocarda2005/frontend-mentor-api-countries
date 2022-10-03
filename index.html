@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>consumo de api</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="normalize.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+  
+  
+</head>
+<body>
+
+  
+  <main class="app">
+    <section class="app__header">
+      <header class="app__header__top">
+        <h3 class="app__header__top__title">Where in the world</h3>
+        <div class="app__header__top__dark-light">
+          <i class="fa-sharp fa-solid fa-moon"></i>
+          <h4 class="app__header__top__dark-light__title">Dark mode</h4>
+        </div>
+      </header>
+      <nav class="app__nav">
+        <div class="app__nav__search">
+          <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder=" Search for a country..." class="app__nav__search__input" id="search">
+          <aside class="show__auto_complete">
+            <h5 class="show__auto_complete__myText"></h5>
+          </aside>
+        </div>
+        <div class="app__nav__filter">
+          <h4 class="app__nav__filter__text">Filter by Region</h4>
+          <i class="fa-solid fa-chevron-down"></i>
+          <aside class="app__nav__filter__region">
+            <div class="app__nav__filter__region__content">
+              <ul class="app__nav__filter__region__content__list">
+                <li id="list">Africa</li>
+                <li id="list">America</li>
+                <li id="list">Asia</li>
+                <li id="list">Europa</li>
+                <li id="list">Oceania</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </nav>
+    </section>
+    <section class="app__main">
+      <div class="app__main__cards">
+        <div class="app__main__cards__card">
+          <img src="" alt="">
+          <div class="app__main__cards__card__details">
+            <div class="app__main__cards__card__details__d">
+              <h5 class="app__main__cards__card__details__title"></h5>
+              <div class="app__main__cards__card__details__list">
+                <p><b>Population :</b>87,000,000</p>
+                <p><b>Region :</b>America</p>
+                <p><b>Capital :</b>Buenos Aires</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script type="module" src="main.js"></script>
+</body>
+</html>
