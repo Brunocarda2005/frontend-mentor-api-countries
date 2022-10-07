@@ -75,8 +75,6 @@ const generatorCard = async (url) => {
   
   windowCard.innerHTML = '';
   
-   
-  
   
   await fetch(url)
     .then((element) => element.json() )
@@ -85,9 +83,9 @@ const generatorCard = async (url) => {
         
         data.forEach((e) => {
           
-           windowCard.innerHTML += `
-             <div class="app__main__cards__card">
-               <img src="${e.flags.png}" alt="">
+          windowCard.innerHTML += `
+             <div class="app__main__cards__card" id="${e.name.common}">
+               <img src="${e.flags.png}" alt="${e.flags.png}">
                <div class="app__main__cards__card__details">
                  <div class="app__main__cards__card__details__d">
                  <h5 class="app__main__cards__card__details__title">${e.name.common}</h5>
@@ -100,11 +98,12 @@ const generatorCard = async (url) => {
                </div>
              </div>`
           
-          
-        
+          touchCard('.app__main__cards__card');
           
           
         })
+        
+        
     })
 
 }
@@ -149,8 +148,42 @@ searchInput.addEventListener('keyup' , () => {
 })
 
 
+
 searchInput.addEventListener('change' , () => {
   
   generatorCard(`https://restcountries.com/v3.1/name/${value}`);
+  autoComplete.style = 'display: none;'
   
 })
+
+
+
+
+
+
+
+// ============================ touch card ===============================
+
+
+
+// function
+
+
+export const touchCard = async (element) => {
+  
+  const vars = document.querySelectorAll(element);
+  let array ;
+  
+  vars.forEach( (e) => {
+    
+    e.addEventListener('click' , () => {
+      
+      localStorage.setItem('varCountry' , e.id);
+      window.location.href = '/more/more-Info.html';
+      
+    })
+    
+    
+  })
+  
+}

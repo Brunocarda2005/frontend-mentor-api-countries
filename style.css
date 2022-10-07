@@ -414,6 +414,7 @@ body.dark .app__main__cards__card__details__list p {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 15px;
+    justify-content: space-evenly;
     
   }
 
