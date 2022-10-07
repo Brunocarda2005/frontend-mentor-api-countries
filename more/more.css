@@ -203,9 +203,10 @@ body.dark .more__info__country h3  {
 
 .more__info__country__limitrofe {
   
-  margin: 50px 0;
-  width: 100%;
+  width: 90%;
   display: flex;
+  margin: auto;
+  margin: 50px 0;
   justify-content: space-evenly;
   gap: 10px;
   
