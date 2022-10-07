@@ -326,7 +326,7 @@ body.dark .app__nav__filter__region__content__list li {
 .app__main__cards__card {
   
   max-width: 250px;
-  width: 80%;
+  width: 90%;
   height: auto;
   position: relative;
   border-radius: 5px;
@@ -357,7 +357,7 @@ body.dark .app__nav__filter__region__content__list li {
 
 .app__main__cards__card__details__d {
   
-  width: 80%;
+  width: 100%;
   height: 150px;
   display: flex;
   flex-direction: column;
@@ -381,13 +381,19 @@ body.dark .app__main__cards__card__details__title {
 
 .app__main__cards__card__details__list {
   
-  width: 80%;
+  width: 100%;
   height: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   transition: color .4s ease-in-out;
   
+}
+
+.app__main__cards__card__details__list p {
+
+  font-size: 1.2rem;
+
 }
 
 body.dark .app__main__cards__card__details__list p {
@@ -401,7 +407,8 @@ body.dark .app__main__cards__card__details__list p {
 .app__main__cards__card__details__list b {
   
   margin-right: 5%;
-  
+  font-size: 1.2rem;
+
 }
 
 
