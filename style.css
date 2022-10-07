@@ -390,6 +390,12 @@ body.dark .app__main__cards__card__details__title {
   
 }
 
+.app__main__cards__card__details__list p {
+
+  font-size: 0.8em;
+
+}
+
 body.dark .app__main__cards__card__details__list p {
   
   color: #FFF;
