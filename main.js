@@ -83,9 +83,11 @@ const generatorCard = async (url) => {
         
         data.forEach((e) => {
           
+          
           windowCard.innerHTML += `
-             <div class="app__main__cards__card" id="${e.name.common}">
-               <img src="${e.flags.png}" alt="${e.flags.png}">
+             <div class="app__main__cards__card">
+               <img src="${e.flags.png}" alt="${e.flags.png}" class="app__main__cards__card__img" >
+               <input type="text" hidden value="${e.name.common}" class="app__main__cards__card__input">
                <div class="app__main__cards__card__details">
                  <div class="app__main__cards__card__details__d">
                  <h5 class="app__main__cards__card__details__title">${e.name.common}</h5>
@@ -169,7 +171,7 @@ searchInput.addEventListener('change' , () => {
 // function
 
 
-export const touchCard = async (element) => {
+const touchCard = async (element) => {
   
   const vars = document.querySelectorAll(element);
   let array ;
@@ -178,7 +180,9 @@ export const touchCard = async (element) => {
     
     e.addEventListener('click' , () => {
       
-      localStorage.setItem('varCountry' , e.id);
+      let input = document.querySelector('.app__main__cards__card__input');
+      
+      localStorage.setItem('varCountry' , input.value);
       window.location.href = 'https://brunocarda2005.github.io/frontend-mentor-api-countries/more/more-Info.html';
       
     })
