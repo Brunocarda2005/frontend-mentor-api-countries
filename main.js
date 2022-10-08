@@ -179,7 +179,7 @@ export const touchCard = async (element) => {
     e.addEventListener('click' , () => {
       
       localStorage.setItem('varCountry' , e.id);
-      window.location.href = 'https://brunocarda2005.github.io/frontend-mentor-api-countries-/more/more-Info.html';
+      window.location.href = 'https://brunocarda2005.github.io/frontend-mentor-api-countries/more/more-Info.html';
       
     })
     
