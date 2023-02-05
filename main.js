@@ -1,91 +1,51 @@
 // ===================== dark Ligth ============================
 
-//vars 
+//vars
 
-const BTNdarkLight = document.querySelector('.app__header__top__dark-light');
-const app = document.querySelector('body');
+const BTNdarkLight = document.querySelector(".app__header__top__dark-light");
+const app = document.querySelector("body");
 
-BTNdarkLight.addEventListener('click' , () => {
-  
-  app.classList.toggle('dark');
-  
-  
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
+BTNdarkLight.addEventListener("click", () => {
+  app.classList.toggle("dark");
+});
 
 // ==================== menu filter =======================
 
 // vars
 
-const filterBTN = document.querySelector('.app__nav__filter');
-const filter = document.querySelector('.app__nav__filter__region');
-const filterRegion = document.querySelectorAll('#list');
+const filterBTN = document.querySelector(".app__nav__filter");
+const filter = document.querySelector(".app__nav__filter__region");
+const filterRegion = document.querySelectorAll("#list");
 
 // filter show
 
-filterBTN.addEventListener('click' , () => {
-  
-  
-  filter.classList.toggle('show');
-  
-  
-})
+filterBTN.addEventListener("click", () => {
+  filter.classList.toggle("show");
+});
 
-
-filterRegion.forEach( (e) => {
-  
-  
-  e.addEventListener('click' , () => {
-    
+filterRegion.forEach((e) => {
+  e.addEventListener("click", () => {
     generatorCard(`https://restcountries.com/v3.1/region/${e.innerHTML}`);
-    
-  })
-  
-  
-})
-
-
-
-
-
+  });
+});
 
 // =================== consumo de api ===========================
 
+// vars
 
-// vars 
-
-const windowCard = document.querySelector('.app__main__cards');
-
+const windowCard = document.querySelector(".app__main__cards");
 
 // card generator
 
 const generatorCard = async (url) => {
-  
-  windowCard.innerHTML = '';
-  
-  
+  windowCard.innerHTML = "";
+
   await fetch(url)
-    .then((element) => element.json() )
+    .then((element) => element.json())
     .then((data) => {
-        
-        
-        data.forEach((e) => {
-          
-          
-          windowCard.innerHTML += `
-             <div class="app__main__cards__card">
+      data.forEach((e) => {
+        windowCard.innerHTML += `
+             <div class="app__main__cards__card ${e.name.common}">
                <img src="${e.flags.png}" alt="${e.flags.png}" class="app__main__cards__card__img" >
                <input type="text" hidden value="${e.name.common}" class="app__main__cards__card__input">
                <div class="app__main__cards__card__details">
@@ -98,96 +58,55 @@ const generatorCard = async (url) => {
                    </div>
                  </div>
                </div>
-             </div>`
-          
-          touchCard('.app__main__cards__card');
-          
-          
-        })
-        
-        
-    })
+             </div>`;
 
-}
+        let elementCard = document.querySelectorAll(".app__main__cards__card");
+        elementCard.forEach((e) => {
+          e.addEventListener("click", () => {
+            touchCard(`.${e.classList[1]}`);
+          });
+        });
+      });
+    });
+};
 
-generatorCard('https://restcountries.com/v3.1/all');
-
-
-
-
-
-
-
-
-
+generatorCard("https://restcountries.com/v3.1/all");
 
 // ============================ search =================================
 
+const searchInput = document.getElementById("search");
+const autoComplete = document.querySelector(".show__auto_complete");
+const titleComplete = document.querySelector(".show__auto_complete__myText");
+let value = "";
 
-
-const searchInput = document.getElementById('search');
-const autoComplete = document.querySelector('.show__auto_complete');
-const titleComplete = document.querySelector('.show__auto_complete__myText');
-let value = '';
-
-
-
-searchInput.addEventListener('keyup' , () => {
-  
+searchInput.addEventListener("keyup", () => {
   value = searchInput.value;
   titleComplete.innerHTML = value;
-  
-  if (value == '') {
-    
-    autoComplete.style = 'display: none;'
-    
-  }else {
-    
-    autoComplete.style = 'display: flex;'
-    
+
+  if (value == "") {
+    autoComplete.style = "display: none;";
+  } else {
+    autoComplete.style = "display: flex;";
   }
-  
-})
+});
 
-
-
-searchInput.addEventListener('change' , () => {
-  
+searchInput.addEventListener("change", () => {
   generatorCard(`https://restcountries.com/v3.1/name/${value}`);
-  autoComplete.style = 'display: none;'
-  
-})
-
-
-
-
-
-
+  autoComplete.style = "display: none;";
+});
 
 // ============================ touch card ===============================
 
-
-
 // function
 
-
 const touchCard = async (element) => {
-  
-  const vars = document.querySelectorAll(element);
-  let array ;
-  
-  vars.forEach( (e) => {
-    
-    e.addEventListener('click' , () => {
-      
-      let input = document.querySelector('.app__main__cards__card__input');
-      
-      localStorage.setItem('varCountry' , input.value);
-      window.location.href = 'https://brunocarda2005.github.io/frontend-mentor-api-countries/more/more-Info.html';
-      
-    })
-    
-    
-  })
-  
-}
+  const vars = document.querySelector(element);
+  let inputNew = vars.children[1].value;
+  console.log(vars.children[1].value);
+
+  localStorage.setItem("varCountry", ``);
+  localStorage.setItem("varCountry", `${inputNew}`);
+  console.log(localStorage.getItem("varCountry"))
+
+  window.location.href = "/more/more-Info.html";
+};
