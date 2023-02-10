@@ -108,5 +108,5 @@ const touchCard = async (element) => {
   localStorage.setItem("varCountry", `${inputNew}`);
   console.log(localStorage.getItem("varCountry"))
 
-  window.location.href = "/more/more-Info.html";
+  window.location.href = "frontend-mentor-api-countries/more/more-Info.html";
 };
